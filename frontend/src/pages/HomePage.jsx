@@ -9,7 +9,7 @@ function HomePage() {
       <Header />
       <div className="home-container">
         <h1>Cloud Storage</h1>
-        <p>Welcome to the cloud storage app.</p>
+        <p>Добро пожаловать в облачное хранилище</p>
       </div>
     </div>
   );

@@ -77,7 +77,6 @@ def admin_user_list(request):
 @api_view(['DELETE'])
 @permission_classes([IsAdminUser])
 def admin_delete_user(request, user_id):
-    # Логика удаления пользователя (только для админов)
     pass
 
 @api_view(['POST'])
