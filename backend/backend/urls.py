@@ -8,8 +8,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('storage/', include('storage.urls')),
+    path('api/accounts/', include('accounts.urls')),
+    path('api/storage/', include('storage.urls')),
     path('s/<str:token>/', views.public_download, name='public_download'),
     path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
