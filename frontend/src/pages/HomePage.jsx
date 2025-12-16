@@ -1,16 +1,13 @@
 import React from 'react';
-import Header from '../components/Header';
 import '../styles/HomePage.css';
 import '../styles/Header.css';
 
 function HomePage() {
   return (
-    <div>
-      <Header />
-      <div className="home-container">
-        <h1>Cloud Storage</h1>
-        <p>Добро пожаловать в облачное хранилище</p>
-      </div>
+    <div className="home-page">
+      <h1>Файловое хранилище</h1>
+      <p>Здесь вы можете загружать, управлять и делиться своими файлами.</p>
+      <p>Администраторы имеют доступ ко всем файлам.</p>
     </div>
   );
 }

@@ -1,53 +1,93 @@
 .file-card {
   display: flex;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
   margin-bottom: 10px;
+  background-color: #f9f9f9;
 }
 
 .file-icon {
-  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .file-icon img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .file-info {
+  padding: 10px;
   flex: 1;
 }
 
-.file-info input {
-  margin-bottom: 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+.file-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
 }
 
-.file-info button {
+.file-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.file-info label {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.file-info input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-top: 3px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.public-link {
+  margin-top: 10px;
+}
+
+.public-link input {
+  width: 70%;
   margin-right: 5px;
+}
+
+.public-link button {
   padding: 5px 10px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
   cursor: pointer;
 }
 
-.file-info button:hover {
+.public-link button:hover {
   background-color: #0056b3;
 }
 
-.file-info button:last-child {
-  background-color: #dc3545;
+.file-actions {
+  margin-top: 10px;
 }
 
-.file-info button:last-child:hover {
-  background-color: #c82333;
+.file-actions button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-actions button:hover {
+  background-color: #218838;
 }

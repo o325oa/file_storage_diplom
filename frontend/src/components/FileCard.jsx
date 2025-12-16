@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../api';
+import '../styles/FileCard.css';
 
 function FileCard({ file, onDelete, onRename, onUpdateComment, onDownload, onPublish }) {
   const handleDelete = async () => {
@@ -54,34 +55,55 @@ function FileCard({ file, onDelete, onRename, onUpdateComment, onDownload, onPub
     }
   };
 
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(file.public_url);
+      alert('Ссылка скопирована!');
+    } catch (err) {
+      console.error('Ошибка копирования:', err);
+    }
+  };
+
   return (
     <div className="file-card">
       <div className="file-icon">
         <img src="/path/to/file-icon.png" alt="File Icon" />
       </div>
       <div className="file-info">
-        <span>{file.original_name}</span>
+        <h4>{file.original_name}</h4>
+        <p>Размер: {file.size} байт</p>
+        <p>Дата загрузки: {file.uploaded_at}</p>
+        <p>Дата последнего скачивания: {file.last_download || '—'}</p>
+        <div>
+          <label>Комментарий:</label>
+          <input
+            type="text"
+            defaultValue={file.comment}
+            onBlur={(e) => handleUpdateComment(e.target.value)}
+            placeholder="Комментарий"
+          />
+        </div>
+        <div>
+          <label>Новое имя:</label>
+          <input
+            type="text"
+            defaultValue={file.original_name}
+            onBlur={(e) => handleRename(e.target.value)}
+            placeholder="Новое имя"
+          />
+        </div>
         {file.public_url && (
-          <div>
+          <div className="public-link">
+            <label>Публичная ссылка:</label>
             <input type="text" value={file.public_url} readOnly />
-            <button onClick={() => navigator.clipboard.writeText(file.public_url)}>Копировать</button>
+            <button onClick={copyToClipboard}>Копировать</button>
           </div>
         )}
-        <input
-          type="text"
-          defaultValue={file.comment}
-          onBlur={(e) => handleUpdateComment(e.target.value)}
-          placeholder="Комментарий"
-        />
-        <input
-          type="text"
-          defaultValue={file.original_name}
-          onBlur={(e) => handleRename(e.target.value)}
-          placeholder="Новое имя"
-        />
-        <button onClick={handleDownload}>Скачать</button>
-        <button onClick={handlePublish}>Опубликовать</button>
-        <button onClick={handleDelete}>Удалить</button>
+        <div className="file-actions">
+          <button onClick={handleDownload}>Скачать</button>
+          <button onClick={handlePublish}>Опубликовать</button>
+          <button onClick={handleDelete}>Удалить</button>
+        </div>
       </div>
     </div>
   );

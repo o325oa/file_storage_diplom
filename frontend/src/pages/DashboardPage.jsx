@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
 import FileUpload from '../components/FileUpload';
 import FileList from '../components/FileList';
 import api from '../api';
@@ -51,7 +50,6 @@ function DashboardPage() {
 
   return (
     <div>
-      <Header />
       <div className="dashboard-container">
         <h1>Файловое хранилище</h1>
         <FileUpload onUpload={handleUpload} />

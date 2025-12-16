@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../store/slices/authSlice';
 
 function Header() {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, user } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    dispatch(logout());
     navigate('/');
   };
 
@@ -18,6 +20,7 @@ function Header() {
         {isAuthenticated ? (
           <>
             <Link to="/dashboard">Файлы</Link>
+            {user?.is_admin && <Link to="/admin">Админ панель</Link>}
             <button onClick={handleLogout} className="logout-button">Выход</button>
           </>
         ) : (
