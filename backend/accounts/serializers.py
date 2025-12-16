@@ -81,5 +81,5 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data = super().validate(attrs)
         serializer = CustomUserSerializer(self.user)
         data['user'] = serializer.data
-        data['is_admin'] = self.user.is_admin  # Добавляем в ответ тоже
+        data['is_admin'] = self.user.is_admin 
         return data

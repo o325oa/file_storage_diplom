@@ -18,7 +18,7 @@ services:
       - ./backend:/app
     environment:
       - DATABASE_URL=postgresql://postgres:29041972@db:5432/postgres
-      - DEBUG=False  # True для dev
+      - DEBUG=False
     ports:
       - "8000:8000"
     depends_on:

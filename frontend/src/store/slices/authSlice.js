@@ -1,8 +1,6 @@
-// authSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../api/index';
 
-// Проверяем, есть ли токен в localStorage
 const token = localStorage.getItem('access');
 let user = null;
 const userString = localStorage.getItem('user');
