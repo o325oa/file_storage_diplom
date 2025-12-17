@@ -24,7 +24,7 @@ function AdminUsersList() {
   }, [isAuthenticated, user]);
 
   const toggleAdmin = (userId) => {
-    api.patch(`/admin/users/${userId}/toggle/`)
+    api.patch(`/accounts/admin/users/${userId}/toggle/`)
       .then(response => {
         setUsers(users.map(u => u.id === userId ? { ...u, is_admin: response.data.is_admin } : u));
         if (userId === user.id) {
@@ -35,7 +35,7 @@ function AdminUsersList() {
   };
 
   const deleteUser = (userId) => {
-    api.delete(`/admin/users/${userId}/`)
+    api.delete(`/accounts/admin/users/${userId}/`)
       .then(() => {
         setUsers(users.filter(u => u.id !== userId));
       })
