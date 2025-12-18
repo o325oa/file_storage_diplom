@@ -70,9 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
-# Database
-
 import dj_database_url
 
 DATABASES = {
@@ -80,9 +77,6 @@ DATABASES = {
         default='postgresql://postgres:29041972@db:5432/postgres'
     )
 }
-
-
-# Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
     {
