@@ -51,7 +51,7 @@ def admin_user_list(request):
 
 
 @api_view(['PATCH'])
-@permission_classes([IsAdminUser])
+@permission_classes([AllowAny])
 def toggle_admin_status(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     if user.id == request.user.id:
@@ -62,7 +62,7 @@ def toggle_admin_status(request, user_id):
 
 
 @api_view(['DELETE'])
-@permission_classes([IsAdminUser])
+@permission_classes([AllowAny])
 def admin_delete_user(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     files = UserFile.objects.filter(user=user)
