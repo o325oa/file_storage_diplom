@@ -1,13 +1,29 @@
 import React from 'react';
-import '../styles/HomePage.css';
-import '../styles/Header.css';
 
 function HomePage() {
   return (
-    <div className="home-page">
-      <h1>Файловое хранилище</h1>
-      <p>Здесь вы можете загружать, управлять и делиться своими файлами.</p>
-      <p>Администраторы имеют доступ ко всем файлам.</p>
+    <div>
+      <style>
+        {`
+          .home-container {
+            text-align: center;
+            padding: 20px;
+          }
+
+          .home-container h1 {
+            color: #333;
+          }
+
+          .home-container p {
+            color: #666;
+          }
+        `}
+      </style>
+      <div className="home-container">
+        <h1>Файловое хранилище</h1>
+        <p>Здесь вы можете загружать, управлять и делиться своими файлами.</p>
+        <p>Администраторы имеют доступ ко всем файлам.</p>
+      </div>
     </div>
   );
 }
