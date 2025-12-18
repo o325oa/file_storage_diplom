@@ -108,7 +108,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static_django/'
 
 STATIC_ROOT = '/home/deploy/file_storage_diplom/file_storage_diplom/backend/staticfiles'
 
