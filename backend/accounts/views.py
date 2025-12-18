@@ -65,7 +65,7 @@ def toggle_admin_status(request, user_id):
 @permission_classes([AllowAny])
 def admin_delete_user(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
-    files = UserFile.objects.filter(user=user)
+    files = UserFile.objects.filter(owner=user)
     for file in files:
         file_path = os.path.join(settings.FILE_STORAGE_ROOT, file.relative_path)
         if os.path.exists(file_path):
